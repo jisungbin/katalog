@@ -1,0 +1,70 @@
+package land.sungbin.librarian.processor._source.color
+
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.Stable
+import kotlin.LazyThreadSafetyMode.NONE
+import kotlin.String
+import kotlin.collections.List
+import land.sungbin.librarian.runtime.Catalogs
+import land.sungbin.librarian.runtime.Color
+
+public inline val Catalogs.GroupPropertiesColor: GroupPropertiesColorCatalog
+  @Stable
+  get() = GroupPropertiesColorCatalog
+
+private val elements: List<Color> = listOf(
+  Color(
+    name = "my",
+    group = null,
+    value = GroupPropertiesColor.my,
+  ),
+  Color(
+    name = "my1",
+    group = "one",
+    value = GroupPropertiesColor.my1,
+  ),
+  Color(
+    name = "my11",
+    group = "one",
+    value = GroupPropertiesColor.my11,
+  ),
+  Color(
+    name = "my111",
+    group = "one",
+    value = GroupPropertiesColor.my111,
+  ),
+  Color(
+    name = "my2",
+    group = "two",
+    value = GroupPropertiesColor.my2,
+  ),
+  Color(
+    name = "my22",
+    group = "two",
+    value = GroupPropertiesColor.my22,
+  ),
+  Color(
+    name = "my222",
+    group = "two",
+    value = GroupPropertiesColor.my222,
+  ),
+)
+
+@Immutable
+public object GroupPropertiesColorCatalog : List<Color> by elements {
+  @Stable
+  public val AllGroups: List<String> = listOf(
+        "one",
+        "two"
+      )
+
+  @Stable
+  public val one: List<Color> by lazy(NONE) {
+    filter { it.group == "one" }
+  }
+
+  @Stable
+  public val two: List<Color> by lazy(NONE) {
+    filter { it.group == "two" }
+  }
+}

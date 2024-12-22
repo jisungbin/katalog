@@ -1,0 +1,43 @@
+[versions]
+jdk = "17"
+
+gradle-android = "8.7.3"
+gradle-publish-maven = "0.30.0"
+
+kotlin = "2.1.0"
+kotlin-dokka = "2.0.0"
+kotlin-poet = "2.0.0"
+kotlin-symbolProcessing = "2.1.0-1.0.29"
+
+android-minSdk = "23"
+android-compileSdk = "34"
+
+compose-multiplatform = "1.7.3"
+
+spotless = "6.25.0"
+ktlint = "1.5.0"
+
+test-assertk = "0.28.1"
+test-kotlin-compile = "0.7.0"
+
+[plugins]
+android-library = { id = "com.android.library", version.ref = "gradle-android" }
+publish-maven = { id = "com.vanniktech.maven.publish", version.ref = "gradle-publish-maven" }
+
+kotlin-dokka = { id = "org.jetbrains.dokka", version.ref = "kotlin-dokka" }
+kotlin-symbolProcessing = { id = "com.google.devtools.ksp", version.ref = "kotlin-symbolProcessing" }
+
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
+
+[libraries]
+kotlin-poet = { module = "com.squareup:kotlinpoet", version.ref = "kotlin-poet" }
+kotlin-poet-ksp = { module = "com.squareup:kotlinpoet-ksp", version.ref = "kotlin-poet" }
+kotlin-symbolProcessing-api = { module = "com.google.devtools.ksp:symbol-processing-api", version.ref = "kotlin-symbolProcessing" }
+
+compose-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "compose-multiplatform" }
+
+test-assertk = { module = "com.willowtreeapps.assertk:assertk", version.ref = "test-assertk" }
+test-kotlin-compile = { module = "dev.zacsweers.kctfork:core", version.ref = "test-kotlin-compile" }
+test-kotlin-compile-ksp = { module = "dev.zacsweers.kctfork:ksp", version.ref = "test-kotlin-compile" }
+
+ktlint-cli = { module = "com.pinterest.ktlint:ktlint-cli", version.ref = "ktlint" } # for Renovate

@@ -1,0 +1,27 @@
+package land.sungbin.librarian.processor._source.color
+
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.Stable
+import kotlin.collections.List
+import land.sungbin.librarian.runtime.Catalogs
+import land.sungbin.librarian.runtime.Color
+
+public inline val Catalogs.OneIgnoredColor: OneIgnoredColorCatalog
+  @Stable
+  get() = OneIgnoredColorCatalog
+
+private val elements: List<Color> = listOf(
+  Color(
+    name = "my",
+    group = null,
+    value = OneIgnoredColor.my,
+  ),
+  Color(
+    name = "my3",
+    group = null,
+    value = OneIgnoredColor.my3,
+  ),
+)
+
+@Immutable
+public object OneIgnoredColorCatalog : List<Color> by elements

@@ -1,0 +1,22 @@
+package land.sungbin.librarian.processor._source.color
+
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.Stable
+import kotlin.collections.List
+import land.sungbin.librarian.runtime.Catalogs
+import land.sungbin.librarian.runtime.Color
+
+public inline val Catalogs.PrivatePropertiesColor: PrivatePropertiesColorCatalog
+  @Stable
+  get() = PrivatePropertiesColorCatalog
+
+private val elements: List<Color> = listOf(
+  Color(
+    name = "my",
+    group = null,
+    value = PrivatePropertiesColor.my,
+  ),
+)
+
+@Immutable
+public object PrivatePropertiesColorCatalog : List<Color> by elements

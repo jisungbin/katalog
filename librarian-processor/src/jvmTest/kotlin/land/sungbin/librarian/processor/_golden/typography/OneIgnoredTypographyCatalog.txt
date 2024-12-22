@@ -1,0 +1,30 @@
+package land.sungbin.librarian.processor._source.typography
+
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.Stable
+import kotlin.collections.List
+import land.sungbin.librarian.runtime.Catalogs
+import land.sungbin.librarian.runtime.Catalogs.configuration
+import land.sungbin.librarian.runtime.Typography
+
+public inline val Catalogs.OneIgnoredTypography: OneIgnoredTypographyCatalog
+  @Stable
+  get() = OneIgnoredTypographyCatalog
+
+private val elements: List<Typography> = listOf(
+  Typography(
+    name = "my",
+    group = null,
+    style = OneIgnoredTypography.my,
+    previewText = configuration.typographyPreviewText,
+  ),
+  Typography(
+    name = "my3",
+    group = null,
+    style = OneIgnoredTypography.my3,
+    previewText = configuration.typographyPreviewText,
+  ),
+)
+
+@Immutable
+public object OneIgnoredTypographyCatalog : List<Typography> by elements

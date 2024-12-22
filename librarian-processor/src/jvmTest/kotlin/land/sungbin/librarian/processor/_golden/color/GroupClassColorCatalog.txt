@@ -1,0 +1,44 @@
+package land.sungbin.librarian.processor._source.color
+
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.Stable
+import kotlin.LazyThreadSafetyMode.NONE
+import kotlin.String
+import kotlin.collections.List
+import land.sungbin.librarian.runtime.Catalogs
+import land.sungbin.librarian.runtime.Color
+
+public inline val Catalogs.GroupClassColor: GroupClassColorCatalog
+  @Stable
+  get() = GroupClassColorCatalog
+
+private val elements: List<Color> = listOf(
+  Color(
+    name = "my1",
+    group = "my",
+    value = GroupClassColor.my1,
+  ),
+  Color(
+    name = "my2",
+    group = "my",
+    value = GroupClassColor.my2,
+  ),
+  Color(
+    name = "my3",
+    group = "my",
+    value = GroupClassColor.my3,
+  ),
+)
+
+@Immutable
+public object GroupClassColorCatalog : List<Color> by elements {
+  @Stable
+  public val AllGroups: List<String> = listOf(
+        "my"
+      )
+
+  @Stable
+  public val my: List<Color> by lazy(NONE) {
+    filter { it.group == "my" }
+  }
+}

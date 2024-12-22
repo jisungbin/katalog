@@ -1,0 +1,48 @@
+package land.sungbin.librarian.processor._source.typography
+
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.Stable
+import kotlin.LazyThreadSafetyMode.NONE
+import kotlin.String
+import kotlin.collections.List
+import land.sungbin.librarian.runtime.Catalogs
+import land.sungbin.librarian.runtime.Catalogs.configuration
+import land.sungbin.librarian.runtime.Typography
+
+public inline val Catalogs.GroupClassTypography: GroupClassTypographyCatalog
+  @Stable
+  get() = GroupClassTypographyCatalog
+
+private val elements: List<Typography> = listOf(
+  Typography(
+    name = "my1",
+    group = "my",
+    style = GroupClassTypography.my1,
+    previewText = configuration.typographyPreviewText,
+  ),
+  Typography(
+    name = "my2",
+    group = "my",
+    style = GroupClassTypography.my2,
+    previewText = configuration.typographyPreviewText,
+  ),
+  Typography(
+    name = "my3",
+    group = "my",
+    style = GroupClassTypography.my3,
+    previewText = configuration.typographyPreviewText,
+  ),
+)
+
+@Immutable
+public object GroupClassTypographyCatalog : List<Typography> by elements {
+  @Stable
+  public val AllGroups: List<String> = listOf(
+        "my"
+      )
+
+  @Stable
+  public val my: List<Typography> by lazy(NONE) {
+    filter { it.group == "my" }
+  }
+}
