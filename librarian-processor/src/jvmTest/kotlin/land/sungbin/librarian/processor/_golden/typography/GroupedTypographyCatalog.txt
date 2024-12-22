@@ -1,0 +1,71 @@
+package land.sungbin.librarian.processor._source.typography
+
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.Stable
+import kotlin.LazyThreadSafetyMode.NONE
+import kotlin.collections.List
+import land.sungbin.librarian.runtime.Catalogs
+import land.sungbin.librarian.runtime.Catalogs.configuration
+import land.sungbin.librarian.runtime.Typography
+
+public inline val Catalogs.GroupedTypography: GroupedTypographyCatalog
+  @Stable
+  get() = GroupedTypographyCatalog
+
+private val typographies: List<Typography> = listOf(
+  Typography(
+    name = "my",
+    group = null,
+    style = GroupedTypography.my,
+    previewText = configuration.typographyPreviewText,
+  ),
+  Typography(
+    name = "my1",
+    group = "one",
+    style = GroupedTypography.my1,
+    previewText = configuration.typographyPreviewText,
+  ),
+  Typography(
+    name = "my11",
+    group = "one",
+    style = GroupedTypography.my11,
+    previewText = configuration.typographyPreviewText,
+  ),
+  Typography(
+    name = "my111",
+    group = "one",
+    style = GroupedTypography.my111,
+    previewText = configuration.typographyPreviewText,
+  ),
+  Typography(
+    name = "my2",
+    group = "two",
+    style = GroupedTypography.my2,
+    previewText = configuration.typographyPreviewText,
+  ),
+  Typography(
+    name = "my22",
+    group = "two",
+    style = GroupedTypography.my22,
+    previewText = configuration.typographyPreviewText,
+  ),
+  Typography(
+    name = "my222",
+    group = "two",
+    style = GroupedTypography.my222,
+    previewText = configuration.typographyPreviewText,
+  ),
+)
+
+@Immutable
+public object GroupedTypographyCatalog : List<Typography> by typographies {
+  @Stable
+  public val one: List<Typography> by lazy(NONE) {
+    filter { it.group == "one" }
+  }
+
+  @Stable
+  public val two: List<Typography> by lazy(NONE) {
+    filter { it.group == "two" }
+  }
+}

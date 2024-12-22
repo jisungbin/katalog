@@ -1,0 +1,17 @@
+package land.sungbin.librarian.processor._source.typography
+
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.Stable
+import kotlin.collections.List
+import land.sungbin.librarian.runtime.Catalogs
+import land.sungbin.librarian.runtime.Typography
+
+public inline val Catalogs.AllIgnoredTypography: AllIgnoredTypographyCatalog
+  @Stable
+  get() = AllIgnoredTypographyCatalog
+
+private val typographies: List<Typography> = listOf(
+)
+
+@Immutable
+public object AllIgnoredTypographyCatalog : List<Typography> by typographies
