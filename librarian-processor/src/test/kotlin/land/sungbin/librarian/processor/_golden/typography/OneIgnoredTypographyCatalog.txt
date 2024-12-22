@@ -1,0 +1,22 @@
+package land.sungbin.librarian.processor._source.typography
+
+import kotlin.collections.List
+import land.sungbin.librarian.runtime.Catalogs.configuration
+import land.sungbin.librarian.runtime.Typography
+
+private val typographies: List<Typography> = listOf(
+  Typography(
+    name = "my",
+    group = null,
+    style = OneIgnoredTypography.my,
+    previewText = configuration.typographyPreviewText,
+  ),
+  Typography(
+    name = "my3",
+    group = null,
+    style = OneIgnoredTypography.my3,
+    previewText = configuration.typographyPreviewText,
+  ),
+)
+
+public object OneIgnoredTypographyCatalog : List<Typography> by typographies
