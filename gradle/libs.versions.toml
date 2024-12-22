@@ -10,7 +10,7 @@ kotlin-symbolProcessing = "2.1.0-1.0.29"
 
 jetbrains-annotations = "26.0.1"
 
-compose-multiplatform = "1.7.1"
+compose-multiplatform = "1.7.3"
 
 spotless = "6.25.0"
 ktlint = "1.5.0"
