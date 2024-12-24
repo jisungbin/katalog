@@ -7,7 +7,7 @@ gradle-publish-maven = "0.30.0"
 kotlin = "2.1.0"
 kotlin-dokka = "2.0.0"
 kotlin-poet = "2.0.0"
-kotlin-symbolProcessing = "2.1.0-1.0.29"
+kotlin-symbolProcessing = "2.1.20-Beta1-1.0.29"
 
 android-minSdk = "23"
 android-compileSdk = "34"
